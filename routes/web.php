@@ -23,12 +23,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Registred routes
-Route::prefix('registred')
+Route::name('registred.')
+->prefix('registred')
 ->namespace('registred')
 ->middleware('auth')
 ->group(function () {
-    Route::get('/', 'TaskController@index')
-    ->name('task.index');
-    Route::post('/', 'TaskController@store')->name('task.store');
-    Route::resource('task', 'TaskController');
+    // Route::get('/', 'TaskController@index')
+    // ->name('task.index');
+    
+    Route::resource('/', 'TaskController');
 });

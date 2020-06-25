@@ -22,6 +22,16 @@ class TaskController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('registred.insert');
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -34,18 +44,18 @@ class TaskController extends Controller
 
         $newTask = new Task;
         $newTask->user_id = Auth::id();
-        $newTask->body = $data['text'];
+        $newTask->text = $data['text'];
         $newTask->date = $data['date'];
         $newTask->priority = $data['priority'];
 
-        $saved = $newPost->save();
+        $saved = $newTask->save();
 
 
         if (!$saved) {
             return redirect()->back()->with('error', 'Task Store ERROR!');;
         }
 
-        return redirect()->route('registred.task.index')->with('message', 'Task Stored!');
+        return redirect()->route('registred.index')->with('message', 'Task Stored!');
     }
    
 }

@@ -5,7 +5,9 @@
 @section('content')
 <div class="container">
 
-    <h1> {{Auth::user()->name}}'s Tasks List</h1>  
+    <h1> {{Auth::user()->name}}'s Tasks List</h1>
+          <a class="btn btn-primary" href="{{route('registred.create')}}">Make a new task</a>
+
 
     <table class="table">
         <thead>
@@ -35,29 +37,7 @@
         
         </tbody>
     </table>
-    <div>
-        <form action="{{route('registred.task.store')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            @method('POST')
-
-            <div class="form-group">
-            <label for="text">Text</label>
-            <textarea class="form-control" name="text" id="text" cols="30" rows="10"></textarea>
-            </div>
-
-            <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" name="date" id="date">
-            </div>
-
-            <div class="form-group">
-                <label for="priority">Priority</label>
-                <input type="number" name="priority" id="priority">
-            </div>
-
-            <button class="btn btn-success" type="submit">Save</button>
-      </form>
-    </div>
+    
 </div>
 @endsection
 
