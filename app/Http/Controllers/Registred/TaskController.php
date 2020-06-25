@@ -41,6 +41,11 @@ class TaskController extends Controller
     {
         $data = $request->all();
 
+        $request->validate([
+            'text' => 'required|string',
+            'date' => 'required|date',
+            'priority' => 'required|numeric|min:1|max:3',
+        ]);
 
         $newTask = new Task;
         $newTask->user_id = Auth::id();
