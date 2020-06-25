@@ -16,7 +16,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::where('user_id', Auth::id())->get();
+        $tasks = Task::where('user_id', Auth::id())->orderBy('date', 'asc')->get();
 
         return view('registred.index', compact('tasks'));
     }
