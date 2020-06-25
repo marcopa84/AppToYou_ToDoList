@@ -20,6 +20,7 @@ class CreateTasksTable extends Migration
             $table->longText('text');
             $table->date('date');
             $table->string('priority');
+            $table->boolean('done');
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@ class Task extends Model
         'text',
         'date',
         'priority',
+        'done',
         'updated_at'
     ];
 
