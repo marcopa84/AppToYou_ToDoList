@@ -33,4 +33,5 @@ Route::name('registred.')
     
     Route::resource('/', 'TaskController');
     Route::patch('/done/{task}', 'TaskController@done')->name('done');
+    Route::get('/donelist', 'TaskController@donelist')->name('donelist');
 });

@@ -6,7 +6,13 @@
 <div class="container">
 
     <h1> {{Auth::user()->name}}'s Tasks List</h1>
-          <a class="btn btn-primary" href="{{route('registred.create')}}">Make a new task</a>
+    <a class="btn btn-primary" href="{{route('registred.create')}}">Make a new task</a>
+
+
+
+    <a class="btn btn-primary" href="{{route('registred.donelist')}}">List of Done! task</a>
+
+
 
 
     <table class="table">
@@ -67,7 +73,6 @@
 
         <button class="btn btn-success" type="submit">Save</button>
     </form>
-    
 </div>
 @endsection
 

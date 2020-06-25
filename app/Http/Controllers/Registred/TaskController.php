@@ -63,23 +63,7 @@ class TaskController extends Controller
 
         return redirect()->route('registred.index')->with('message', 'Task Stored!');
     }
-    
-
-    // public function done($id)
-    // {
-    
-    //     $task = Task::where('id', $id )->get();
-    //     // $task->done = 1;
-    //     // return $task;
-    //     $update = $task->update($task->done = 1);
-
-    //     if (!$update) {
-    //         return redirect()->back()->with('error', 'Task done ERROR!');;
-    //     }
-
-    //     return redirect()->route('registred.index')->with('message', 'Task DONE!!');
-    // }    
-    
+        
     public function done(Request $request, Task $task)
     {
         $data = $request->all();
@@ -90,5 +74,12 @@ class TaskController extends Controller
         }
 
         return redirect()->route('registred.index')->with('message', 'Task DONE!!');
+    }
+
+    public function donelist()
+    {
+        $tasks = Task::where('user_id', Auth::id())->where('done', 1)->orderBy('date', 'asc')->get();
+
+        return view('registred.donelist', compact('tasks'));
     }
 }
